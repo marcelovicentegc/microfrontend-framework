@@ -1,18 +1,25 @@
 const commonSchema = {
-  type: "object",
+  type: "array",
   nullable: true,
-  properties: {
-    slot: {
-      type: "string",
+  minItems: 1,
+  items: {
+    type: "object",
+    properties: {
+      slot: {
+        type: "string",
+      },
+      path: {
+        type: "string",
+      },
+      title: {
+        type: "string",
+      },
+      componentName: {
+        type: "string",
+      },
     },
-    path: {
-      type: "string",
-    },
-    title: {
-      type: "string",
-    },
+    required: ["slot", "path", "title", "componentName"],
   },
-  required: ["slot", "path", "title"],
 };
 
 export const appConfigSchema = {
