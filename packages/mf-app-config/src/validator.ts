@@ -1,10 +1,9 @@
-import AJV, { JSONSchemaType } from "ajv";
+import AJV from "ajv";
 import ajvErrors from "ajv-errors";
 import { appConfigSchema } from "./schemas";
-import { AppConfig } from "./types";
 
 interface SchemaMap {
-  appConfig: Record<string, JSONSchemaType<AppConfig>>;
+  appConfig: Record<string, any>;
 }
 
 type AvailableSchemas = keyof SchemaMap;

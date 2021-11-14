@@ -1,6 +1,3 @@
-import { JSONSchemaType } from "ajv";
-import { AppConfig } from "./types";
-
 const commonSchema = {
   type: "object",
   nullable: true,
@@ -32,4 +29,4 @@ export const appConfigSchema = {
     sidebar: commonSchema,
     topbar: commonSchema,
   },
-} as JSONSchemaType<AppConfig>;
+};
