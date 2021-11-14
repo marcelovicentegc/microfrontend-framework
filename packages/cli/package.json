@@ -1,9 +1,9 @@
 {
   "name": "@mf-framework/cli",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "marcelovicentegc @marcelovicentegc",
   "bin": {
-    "cli": "./bin/run"
+    "mf-framework-cli": "./bin/run"
   },
   "bugs": "https://github.com/marcelovicentegc/microfrontend-framework/issues",
   "dependencies": {
@@ -42,7 +42,7 @@
   "main": "lib/index.js",
   "oclif": {
     "commands": "./lib/commands",
-    "bin": "@mf-framework/cli",
+    "bin": "mf-framework-cli",
     "plugins": [
       "@oclif/plugin-help"
     ]
