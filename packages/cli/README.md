@@ -16,13 +16,13 @@
 <!-- usage -->
 ```sh-session
 $ npm install -g @mf-framework/cli
-$ cli COMMAND
+$ @mf-framework/cli COMMAND
 running command...
-$ cli (-v|--version|version)
+$ @mf-framework/cli (-v|--version|version)
 @mf-framework/cli/0.0.1 darwin-arm64 node-v16.13.0
-$ cli --help [COMMAND]
+$ @mf-framework/cli --help [COMMAND]
 USAGE
-  $ cli COMMAND
+  $ @mf-framework/cli COMMAND
 ...
 ```
 <!-- usagestop -->
@@ -30,19 +30,19 @@ USAGE
 # Commands
 
 <!-- commands -->
-* [`cli create`](#cli-create)
-* [`cli help [COMMAND]`](#cli-help-command)
+* [`@mf-framework/cli create`](#mf-frameworkcli-create)
+* [`@mf-framework/cli help [COMMAND]`](#mf-frameworkcli-help-command)
 
-## `cli create`
+## `@mf-framework/cli create`
 
 creates a new mf-app
 
 ```
 USAGE
-  $ cli create
+  $ @mf-framework/cli create
 
 OPTIONS
-  --framework=framework
+  --framework=nextjs|react
 
 EXAMPLE
   $ npx create-mf-app my-mf-app
@@ -50,13 +50,13 @@ EXAMPLE
 
 _See code: [src/commands/create.ts](https://github.com/marcelovicentegc/microfrontend-framework/blob/v0.0.1/src/commands/create.ts)_
 
-## `cli help [COMMAND]`
+## `@mf-framework/cli help [COMMAND]`
 
-display help for cli
+display help for @mf-framework/cli
 
 ```
 USAGE
-  $ cli help [COMMAND]
+  $ @mf-framework/cli help [COMMAND]
 
 ARGUMENTS
   COMMAND  command to show help for
