@@ -6,7 +6,7 @@ import * as inquirer from "inquirer";
 export default class Create extends Command {
   static description = "creates a new mf-app";
 
-  static examples = [`$ npx create-mf-app my-mf-app`];
+  static examples = [`$ npx @mf-framework/cli create`];
 
   private static frameworkOptions = ["nextjs", "react"];
   static flags = {
