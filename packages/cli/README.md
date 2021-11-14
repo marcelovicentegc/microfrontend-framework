@@ -19,7 +19,7 @@ $ npm install -g @mf-framework/cli
 $ @mf-framework/cli COMMAND
 running command...
 $ @mf-framework/cli (-v|--version|version)
-@mf-framework/cli/0.0.1 darwin-arm64 node-v16.13.0
+@mf-framework/cli/0.0.2 darwin-arm64 node-v16.13.0
 $ @mf-framework/cli --help [COMMAND]
 USAGE
   $ @mf-framework/cli COMMAND
@@ -45,10 +45,10 @@ OPTIONS
   --framework=nextjs|react
 
 EXAMPLE
-  $ npx create-mf-app my-mf-app
+  $ npx @mf-framework/cli create
 ```
 
-_See code: [src/commands/create.ts](https://github.com/marcelovicentegc/microfrontend-framework/blob/v0.0.1/src/commands/create.ts)_
+_See code: [src/commands/create.ts](https://github.com/marcelovicentegc/microfrontend-framework/blob/v0.0.2/src/commands/create.ts)_
 
 ## `@mf-framework/cli help [COMMAND]`
 

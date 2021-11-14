@@ -10,7 +10,7 @@ export default class Create extends Command {
 
   private static frameworkOptions = ["nextjs", "react"];
   static flags = {
-    framework: flags.string({ options: this.frameworkOptions }),
+    framework: flags.string({ options: Create.frameworkOptions }),
   };
 
   async run() {
