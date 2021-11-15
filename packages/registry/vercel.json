@@ -1,0 +1,8 @@
+{
+  "functions": {
+    "api/healthcheck.ts": {
+      "memory": 128,
+      "maxDuration": 5
+    }
+  }
+}
