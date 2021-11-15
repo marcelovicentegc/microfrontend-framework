@@ -1,9 +1,10 @@
 {
   "name": "@mf-framework/builders",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "license": "MIT",
   "author": "Marcelo Cardoso",
   "scripts": {
+    "build": "tsc",
     "prepublish": "sh config_version.sh"
   },
   "devDependencies": {
