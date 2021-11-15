@@ -1,4 +1,4 @@
-import express from "express";
+import * as express from "express";
 import { lookup } from "dns";
 import { hostname } from "os";
 import { appBuilder } from "./app";
