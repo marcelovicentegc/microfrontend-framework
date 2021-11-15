@@ -4,7 +4,7 @@
     "target": "es2018",
     "module": "commonjs",
     "moduleResolution": "node",
-    "outDir": "dist",
+    "outDir": "public",
     "declaration": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
