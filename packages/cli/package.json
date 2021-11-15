@@ -10,6 +10,8 @@
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^3",
+    "adm-zip": "^0.5.9",
+    "axios": "^0.24.0",
     "cli-ux": "^5.6.3",
     "inquirer": "^8.2.0",
     "rxjs": "^7.4.0",
@@ -17,6 +19,7 @@
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1",
+    "@types/adm-zip": "^0.4.34",
     "@types/node": "^10",
     "eslint": "^5.13",
     "eslint-config-oclif": "^3.1",
@@ -54,7 +57,7 @@
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
     "test": "echo NO TESTS",
     "version": "oclif-dev readme && git add README.md",
-    "start": "bin/run"
+    "start": "NODE_ENV=development bin/run"
   },
   "types": "lib/index.d.ts"
 }
