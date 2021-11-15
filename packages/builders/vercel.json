@@ -1,14 +1,14 @@
 {
   "functions": {
-    "./api/index.ts": {
+    "api/index.ts": {
       "memory": 128,
       "maxDuration": 5
     },
-    "./api/build-app.ts": {
+    "api/build-app.ts": {
       "memory": 128,
       "maxDuration": 5
     },
-    "./api/build-tenant.ts": {
+    "api/build-tenant.ts": {
       "memory": 128,
       "maxDuration": 5
     }
