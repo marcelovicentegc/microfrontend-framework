@@ -1,6 +1,6 @@
 {
   "name": "@mf-framework/builders",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "license": "MIT",
@@ -10,7 +10,7 @@
     "start:watch": "rimraf build && tsc --watch",
     "start": "yarn build && concurrently \"yarn start:watch\" \"nodemon build/index.js\"",
     "start:prod": "node build/index.js",
-    "prepublish": "sh ../../scripts/versioning_config.sh @mf-framework/builders"
+    "prepublish": "sh config_version.sh"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
