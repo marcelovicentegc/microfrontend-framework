@@ -10,6 +10,8 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     app,
   });
 
-  res.send("OK");
+  res.setHeader("Content-Type", "application/json");
+  res.status(200).json("OK");
+
   return res;
 };
