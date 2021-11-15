@@ -1,6 +1,6 @@
 {
   "name": "@mf-framework/cli",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": "marcelovicentegc @marcelovicentegc",
   "bin": {
     "mf-framework-cli": "./bin/run"
@@ -52,6 +52,7 @@
   },
   "repository": "marcelovicentegc/microfrontend-framework",
   "scripts": {
+    "prepublish": "sh config_version.sh",
     "postpack": "rm -f oclif.manifest.json",
     "posttest": "eslint . --ext .ts --config .eslintrc",
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
