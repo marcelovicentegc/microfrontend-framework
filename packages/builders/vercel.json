@@ -1,7 +1,14 @@
 {
-  "rewrites": [{ "source": "/dist/api/(.*)", "destination": "/api" }],
   "functions": {
-    "./dist/api/index.js": {
+    "./api/index.ts": {
+      "memory": 128,
+      "maxDuration": 5
+    },
+    "./api/build-app.ts": {
+      "memory": 128,
+      "maxDuration": 5
+    },
+    "./api/build-tenant.ts": {
       "memory": 128,
       "maxDuration": 5
     }

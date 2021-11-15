@@ -1,7 +1,7 @@
+import { VercelRequest, VercelResponse } from "@vercel/node";
 import { registry } from "../clients";
-import { router } from "../router";
 
-router.post("/build-app", async (req, res) => {
+export default async (req: VercelRequest, res: VercelResponse) => {
   const app = req.body;
 
   // Validate, build and save on registry
@@ -11,6 +11,5 @@ router.post("/build-app", async (req, res) => {
   });
 
   res.send("OK");
-});
-
-export { router as appBuilder };
+  return res;
+};
