@@ -1,7 +1,7 @@
 {
   "rewrites": [{ "source": "/dist/api/(.*)", "destination": "/api" }],
   "functions": {
-    "/dist/api/index.js": {
+    "./dist/api/index.js": {
       "memory": 128,
       "maxDuration": 5
     }
