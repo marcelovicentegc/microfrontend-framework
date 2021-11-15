@@ -19,7 +19,7 @@ $ npm install -g @mf-framework/cli
 $ mf-framework-cli COMMAND
 running command...
 $ mf-framework-cli (-v|--version|version)
-@mf-framework/cli/0.0.4 darwin-arm64 node-v16.13.0
+@mf-framework/cli/0.0.5 darwin-arm64 node-v16.13.0
 $ mf-framework-cli --help [COMMAND]
 USAGE
   $ mf-framework-cli COMMAND
@@ -32,6 +32,7 @@ USAGE
 <!-- commands -->
 * [`mf-framework-cli create`](#mf-framework-cli-create)
 * [`mf-framework-cli help [COMMAND]`](#mf-framework-cli-help-command)
+* [`mf-framework-cli publish`](#mf-framework-cli-publish)
 
 ## `mf-framework-cli create`
 
@@ -48,7 +49,7 @@ EXAMPLE
   $ npx @mf-framework/cli create
 ```
 
-_See code: [src/commands/create.ts](https://github.com/marcelovicentegc/microfrontend-framework/blob/v0.0.4/src/commands/create.ts)_
+_See code: [src/commands/create.ts](https://github.com/marcelovicentegc/microfrontend-framework/blob/v0.0.5/src/commands/create.ts)_
 
 ## `mf-framework-cli help [COMMAND]`
 
@@ -66,4 +67,18 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.4/src/commands/help.ts)_
+
+## `mf-framework-cli publish`
+
+creates a new mf-app
+
+```
+USAGE
+  $ mf-framework-cli publish
+
+EXAMPLE
+  $ npx @mf-framework/cli publish
+```
+
+_See code: [src/commands/publish.ts](https://github.com/marcelovicentegc/microfrontend-framework/blob/v0.0.5/src/commands/publish.ts)_
 <!-- commandsstop -->
