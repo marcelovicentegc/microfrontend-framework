@@ -1,1 +1,102 @@
-<mxfile host="app.diagrams.net" modified="2021-11-16T14:01:28.020Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36" version="15.7.3" etag="z8QF1cwFcL-UKmE6GFFK" type="github"><diagram id="8uhu_Z5ZL0VJTQD-L55A">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2021-11-16T14:19:30.430Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36" etag="JlENjwvDlZwg8gKxtD8U" version="15.7.3" type="github">
+  <diagram id="8uhu_Z5ZL0VJTQD-L55A" name="Page-1">
+    <mxGraphModel dx="2038" dy="688" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="fiCLm9QclYrzuNUVfbdS-32" value="&lt;br&gt;Micro-frontend App in NextJS or React&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="105" y="302.5" width="330" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="fiCLm9QclYrzuNUVfbdS-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="fiCLm9QclYrzuNUVfbdS-32" target="fiCLm9QclYrzuNUVfbdS-14">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="460" y="413" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fiCLm9QclYrzuNUVfbdS-2" value="When done&lt;br&gt;developing an&amp;nbsp;&lt;br&gt;app" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="fiCLm9QclYrzuNUVfbdS-1">
+          <mxGeometry x="-0.0364" y="-1" relative="1" as="geometry">
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fiCLm9QclYrzuNUVfbdS-3" value="&lt;a href=&quot;https://github.com/marcelovicentegc/microfrontend-framework/tree/main/packages/sdk&quot;&gt;@mf-framework/sdk&lt;br&gt;&lt;/a&gt;Opinionated framework for building Micro-frontend Apps&lt;br&gt;that ships with the Micro-frontend Framework API and the Micro-frontend Framework App Config&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="352.5" width="300" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="fiCLm9QclYrzuNUVfbdS-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="fiCLm9QclYrzuNUVfbdS-6" target="fiCLm9QclYrzuNUVfbdS-32">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="100" y="413" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fiCLm9QclYrzuNUVfbdS-5" value="Creates a micro-frontend&lt;br&gt;app with the" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="fiCLm9QclYrzuNUVfbdS-4">
+          <mxGeometry x="-0.2286" y="3" relative="1" as="geometry">
+            <mxPoint x="8" y="3" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fiCLm9QclYrzuNUVfbdS-6" value="npx &lt;a href=&quot;https://github.com/marcelovicentegc/microfrontend-framework/tree/main/packages/cli&quot;&gt;@mf-framework/cli&lt;/a&gt; create" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-190" y="382.5" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="fiCLm9QclYrzuNUVfbdS-14" value="npx &lt;a href=&quot;https://github.com/marcelovicentegc/microfrontend-framework/tree/main/packages/cli&quot;&gt;@mf-framework/cli&lt;/a&gt; publish" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="597.5" y="380" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="fiCLm9QclYrzuNUVfbdS-17" value="&lt;a href=&quot;https://github.com/marcelovicentegc/microfrontend-framework/tree/main/packages/mf-app-config&quot;&gt;@mf-framework/mf-app-config&lt;/a&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="442.5" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="fiCLm9QclYrzuNUVfbdS-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="657" y="442.5" as="sourcePoint" />
+            <mxPoint x="657" y="630" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fiCLm9QclYrzuNUVfbdS-19" value="Validates app configuration with&lt;br&gt;the @mf-framework/mf-app-config&lt;br&gt;package and once it&#39;s&lt;br&gt;validated, stores assets at the" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="fiCLm9QclYrzuNUVfbdS-18">
+          <mxGeometry x="-0.1667" relative="1" as="geometry">
+            <mxPoint x="1" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fiCLm9QclYrzuNUVfbdS-21" value="Package Registry/CDN of your choice&lt;br&gt;(in our case, &lt;a href=&quot;https://www.npmjs.com/&quot;&gt;NPM&lt;/a&gt; with &lt;a href=&quot;https://unpkg.com/&quot;&gt;UNPKG)&lt;/a&gt;" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="597.5" y="615" width="120" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="fiCLm9QclYrzuNUVfbdS-22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="fiCLm9QclYrzuNUVfbdS-26" target="fiCLm9QclYrzuNUVfbdS-21">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="112.5" y="660" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fiCLm9QclYrzuNUVfbdS-23" value="1. Fetches app &lt;br&gt;assets from" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="fiCLm9QclYrzuNUVfbdS-22">
+          <mxGeometry x="-0.3429" y="3" relative="1" as="geometry">
+            <mxPoint x="131" y="3" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fiCLm9QclYrzuNUVfbdS-24" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="fiCLm9QclYrzuNUVfbdS-26" target="fiCLm9QclYrzuNUVfbdS-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fiCLm9QclYrzuNUVfbdS-25" value="2. Include assets on the&lt;br&gt;tenant bundle via" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="fiCLm9QclYrzuNUVfbdS-24">
+          <mxGeometry x="-0.625" y="-2" relative="1" as="geometry">
+            <mxPoint x="2" y="25" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fiCLm9QclYrzuNUVfbdS-26" value="npx &lt;a href=&quot;https://github.com/marcelovicentegc/microfrontend-framework/tree/main/packages/cli&quot;&gt;@mf-framework/cli &lt;/a&gt;install" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-190" y="630" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="fiCLm9QclYrzuNUVfbdS-28" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="fiCLm9QclYrzuNUVfbdS-30" target="fiCLm9QclYrzuNUVfbdS-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fiCLm9QclYrzuNUVfbdS-29" value="4. Updates the&amp;nbsp;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="fiCLm9QclYrzuNUVfbdS-28">
+          <mxGeometry x="-0.1286" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fiCLm9QclYrzuNUVfbdS-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="fiCLm9QclYrzuNUVfbdS-30" target="fiCLm9QclYrzuNUVfbdS-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fiCLm9QclYrzuNUVfbdS-37" value="3. Stores new tenant &lt;br&gt;build on" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="fiCLm9QclYrzuNUVfbdS-36">
+          <mxGeometry x="-0.2564" y="-2" relative="1" as="geometry">
+            <mxPoint x="46" y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fiCLm9QclYrzuNUVfbdS-30" value="&lt;a href=&quot;https://github.com/marcelovicentegc/microfrontend-framework/tree/main/packages/builders&quot;&gt;@mf-framework/builders&lt;/a&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-190" y="777" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="fiCLm9QclYrzuNUVfbdS-31" value="Tenant with most recent bundle" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-190" y="930" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
