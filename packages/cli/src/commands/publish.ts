@@ -23,7 +23,7 @@ export default class Publish extends Command {
     manifest.version = patch(manifest.version);
 
     try {
-      await registry.post("/publish-app", {
+      await registry.post("/publish", {
         manifest,
         tarData,
       });
