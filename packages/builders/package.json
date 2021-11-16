@@ -5,7 +5,8 @@
   "author": "Marcelo Cardoso",
   "scripts": {
     "build": "tsc",
-    "prepublish": "sh config_version.sh"
+    "prepublish": "sh config_version.sh",
+    "start": "vercel dev"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",

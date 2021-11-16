@@ -6,6 +6,7 @@
   "license": "MIT",
   "author": "Marcelo Cardoso",
   "scripts": {
+    "prepublish": "sh config_version.sh",
     "build": "rimraf dist && tsc"
   },
   "devDependencies": {

@@ -1,0 +1,1 @@
+yarn config set version-git-message "microfrontend-framework@v%s"

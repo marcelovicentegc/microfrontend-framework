@@ -1,0 +1,16 @@
+{
+  "name": "microfrontend-framework",
+  "version": "0.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:marcelovicentegc/microfrontend-framework.git",
+  "author": "marcelovicentegc <marcelovicentegc@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "prepublish": "sh config_version.sh",
+    "start": ""
+  },
+  "devDependencies": {
+    "concurrently": "^6.4.0",
+    "nodemon": "^2.0.15"
+  }
+}

@@ -4,11 +4,15 @@ import { registry } from "../clients";
 export default async (req: VercelRequest, res: VercelResponse) => {
   const app = req.body;
 
-  // Validate, build and save on registry
+  console.log({ app });
 
-  registry.post("/save", {
-    app,
-  });
+  try {
+    await registry.post("/save", {
+      app,
+    });
+  } catch (error) {
+    throw error;
+  }
 
   res.setHeader("Content-Type", "application/json");
   res.status(200).json("OK");

@@ -7,7 +7,8 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "prepublish": "sh config_version.sh"
+    "prepublish": "sh config_version.sh",
+    "start": "vercel dev"
   },
   "devDependencies": {
     "@types/node": "^16.11.7",
