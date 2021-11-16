@@ -1,6 +1,6 @@
 {
   "name": "microfrontend-framework",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "index.js",
   "repository": "git@github.com:marcelovicentegc/microfrontend-framework.git",
   "author": "marcelovicentegc <marcelovicentegc@gmail.com>",
