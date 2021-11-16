@@ -1,6 +1,6 @@
 {
   "name": "@mf-framework/cli",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "author": "marcelovicentegc @marcelovicentegc",
   "bin": {
     "mf-framework-cli": "./bin/run"
