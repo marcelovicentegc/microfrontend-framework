@@ -1,6 +1,12 @@
 import { Command } from "@oclif/command";
-import * as Zip from "adm-zip";
 import { registry } from "../clients";
+import * as pacote from "pacote";
+
+const APP_PATH = "./";
+
+function patch(version: string) {
+  return `0.0.${Number(version.substr(version.lastIndexOf(".") + 1)) + 1}`;
+}
 
 export default class Publish extends Command {
   static description = "creates a new mf-app";
@@ -9,15 +15,17 @@ export default class Publish extends Command {
 
   async run() {
     // TODO: Before packing and sending to registry, validate it with @mf-framework/mf-app-config.
+    // TODO: Add patch, minor and major options.
 
-    const zip = new Zip();
-    zip.addLocalFolder("./");
+    const manifest = await pacote.manifest(APP_PATH);
+    const tarData = await pacote.tarball(APP_PATH);
 
-    const data = zip.toBuffer();
+    manifest.version = patch(manifest.version);
 
     try {
-      await registry.post("/build-app", {
-        data,
+      await registry.post("/publish-app", {
+        manifest,
+        tarData,
       });
     } catch (error) {
       throw error;
