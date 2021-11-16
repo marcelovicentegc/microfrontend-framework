@@ -1,7 +1,6 @@
 {
   "name": "mf-app-react-template",
   "version": "0.0.0",
-  "private": true,
   "dependencies": {
     "@mf-framework/mf-app-config": "^0.0.3",
     "@testing-library/jest-dom": "^5.11.4",
