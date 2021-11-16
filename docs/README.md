@@ -13,3 +13,7 @@
 | [`@mf-framework/templates`](../packages/templates)         |             |
 
 ## Architecture
+
+### Interaction Overview
+
+![Microfrontend Framework](./assets/microfrontend-framework.svg)
