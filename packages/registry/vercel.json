@@ -3,6 +3,10 @@
     "api/healthcheck.ts": {
       "memory": 128,
       "maxDuration": 5
+    },
+    "api/publish.ts": {
+      "memory": 256,
+      "maxDuration": 5
     }
   }
 }
