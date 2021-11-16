@@ -1,1 +1,0 @@
-yarn config set version-git-message "@mf-framework/cli@v%s"

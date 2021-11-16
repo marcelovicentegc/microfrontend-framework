@@ -1,6 +1,6 @@
 import { Command } from "@oclif/command";
 import * as Zip from "adm-zip";
-import { builders } from "../clients";
+import { registry } from "../clients";
 
 export default class Publish extends Command {
   static description = "creates a new mf-app";
@@ -8,13 +8,15 @@ export default class Publish extends Command {
   static examples = [`$ npx @mf-framework/cli publish`];
 
   async run() {
+    // TODO: Before packing and sending to registry, validate it with @mf-framework/mf-app-config.
+
     const zip = new Zip();
     zip.addLocalFolder("./");
 
     const data = zip.toBuffer();
 
     try {
-      await builders.post("/build-app", {
+      await registry.post("/build-app", {
         data,
       });
     } catch (error) {

@@ -7,6 +7,7 @@
   },
   "bugs": "https://github.com/marcelovicentegc/microfrontend-framework/issues",
   "dependencies": {
+    "@mf-framework/mf-app-config": "^0.0.3",
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^3",
@@ -52,7 +53,6 @@
   },
   "repository": "marcelovicentegc/microfrontend-framework",
   "scripts": {
-    "prepublish": "sh config_version.sh",
     "postpack": "rm -f oclif.manifest.json",
     "posttest": "eslint . --ext .ts --config .eslintrc",
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
