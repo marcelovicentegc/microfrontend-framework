@@ -2,6 +2,7 @@ import { Command } from "@oclif/command";
 import * as pacote from "pacote";
 import * as fs from "fs";
 import { registry } from "../clients";
+import cli from "cli-ux";
 
 const APP_PATH = "./";
 
@@ -28,7 +29,7 @@ export default class Publish extends Command {
     fs.writeFileSync("./package.json", JSON.stringify(manifest));
 
     try {
-      this.log(`Publishing ${manifest.name}@${manifest.version}...`);
+      cli.action.start(`Publishing ${manifest.name}@${manifest.version}`);
 
       await registry.post("/publish", {
         data: {
@@ -38,7 +39,9 @@ export default class Publish extends Command {
         },
       });
 
-      this.log(`Successfully published ${manifest.name}@${manifest.version}`);
+      cli.action.stop(
+        `Successfully published ${manifest.name}@${manifest.version}`
+      );
     } catch (error) {
       throw error;
     }
