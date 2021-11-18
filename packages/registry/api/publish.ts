@@ -1,6 +1,7 @@
 import { VercelRequest, VercelResponse } from "@vercel/node";
 import { Sentry } from "../middleware";
 import { firebase } from "../clients";
+import { BUCKET_BASE_PATH } from "../utils";
 import { getStorage, ref, uploadBytes, uploadString } from "firebase/storage";
 
 export default async (req: VercelRequest, res: VercelResponse) => {
@@ -19,7 +20,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
 
   try {
     const app = `${manifest.name.replace("/", "-")}@${manifest.version}`;
-    const bucket = `mf-framework/${app}`;
+    const bucket = `${BUCKET_BASE_PATH}/${app}`;
 
     const storage = getStorage(firebase);
     const manifestRef = ref(storage, `${bucket}/package.json`);
