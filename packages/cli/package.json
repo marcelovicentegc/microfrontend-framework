@@ -1,6 +1,6 @@
 {
   "name": "@mf-framework/cli",
-  "version": "0.0.10",
+  "version": "0.0.12",
   "author": "marcelovicentegc @marcelovicentegc",
   "bin": {
     "mf-framework-cli": "bin/run"
@@ -58,6 +58,7 @@
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
     "test": "echo NO TESTS",
     "version": "oclif-dev readme && git add README.md",
-    "start": "NODE_ENV=development bin/run"
+    "start": "NODE_ENV=development bin/run",
+    "publish:preid": "yarn publish --preid @mf-framework/cli"
   }
 }
