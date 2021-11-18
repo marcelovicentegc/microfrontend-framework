@@ -10,7 +10,6 @@
     "start": "vercel dev"
   },
   "devDependencies": {
-    "@types/libnpmpublish": "^4.0.1",
     "@types/node": "^16.11.7",
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.3.0",
@@ -21,6 +20,6 @@
     "@sentry/tracing": "^6.15.0",
     "@vercel/node": "^1.12.1",
     "axios": "^0.24.0",
-    "libnpmpublish": "^4.0.2"
+    "firebase": "^9.4.1"
   }
 }

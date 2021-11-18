@@ -1,6 +1,7 @@
 import { VercelRequest, VercelResponse } from "@vercel/node";
-import { publish } from "libnpmpublish";
 import { Sentry } from "../middleware";
+import { firebase } from "../clients";
+import { getStorage, ref, uploadBytes, uploadString } from "firebase/storage";
 
 export default async (req: VercelRequest, res: VercelResponse) => {
   if (req.method !== "POST") {
@@ -10,21 +11,28 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     return res;
   }
 
-  const { manifest, tarData } = req.body;
+  const {
+    data: { manifest, appConfig, tarData },
+  } = req.body;
 
-  // TOOD: Only allowed client to post to this route is the @mf-framework/cli: add API Key authentication.
+  // TOOD: Add API key authentication.
 
   try {
-    await publish(manifest, tarData, {
-      token: process.env.TOKEN,
-    });
+    const app = `${manifest.name.replace("/", "-")}@${manifest.version}`;
+    const bucket = `mf-framework/${app}`;
+
+    const storage = getStorage(firebase);
+    const manifestRef = ref(storage, `${bucket}/package.json`);
+    const appConfigRef = ref(storage, `${bucket}/mf-config.ts`);
+    const tarRef = ref(storage, `${bucket}/${app}.zip`);
+
+    await Promise.all([
+      uploadString(manifestRef, JSON.stringify(manifest)),
+      uploadString(appConfigRef, appConfig),
+      uploadBytes(tarRef, new Uint8Array(tarData.data)),
+    ]);
   } catch (error) {
     Sentry.captureException(error);
     throw error;
   }
-
-  res.setHeader("Content-Type", "application/json");
-  res.status(201).json("CREATED");
-
-  return res;
 };
