@@ -58,7 +58,6 @@
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
     "test": "echo NO TESTS",
     "version": "oclif-dev readme && git add README.md",
-    "start": "NODE_ENV=development bin/run",
-    "publish:preid": "yarn publish --preid @mf-framework/cli"
+    "start": "NODE_ENV=development bin/run"
   }
 }
