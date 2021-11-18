@@ -3,7 +3,7 @@
   "version": "0.0.9",
   "author": "marcelovicentegc @marcelovicentegc",
   "bin": {
-    "mf-framework-cli": "./bin/run"
+    "mf-framework-cli": "bin/run"
   },
   "bugs": "https://github.com/marcelovicentegc/microfrontend-framework/issues",
   "dependencies": {
@@ -51,7 +51,7 @@
       "@oclif/plugin-help"
     ]
   },
-  "repository": "marcelovicentegc/microfrontend-framework",
+  "repository": "https://github.com/marcelovicentegc/microfrontend-framework",
   "scripts": {
     "postpack": "rm -f oclif.manifest.json",
     "posttest": "eslint . --ext .ts --config .eslintrc",
@@ -59,6 +59,5 @@
     "test": "echo NO TESTS",
     "version": "oclif-dev readme && git add README.md",
     "start": "NODE_ENV=development bin/run"
-  },
-  "types": "lib/index.d.ts"
+  }
 }

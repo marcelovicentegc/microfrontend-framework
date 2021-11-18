@@ -1,6 +1,7 @@
 import { Command } from "@oclif/command";
-import { registry } from "../clients";
 import * as pacote from "pacote";
+import * as fs from "fs";
+import { registry } from "../clients";
 
 const APP_PATH = "./";
 
@@ -19,14 +20,25 @@ export default class Publish extends Command {
 
     const manifest = await pacote.manifest(APP_PATH);
     const tarData = await pacote.tarball(APP_PATH);
+    const appConfig = fs.readFileSync("./mf-config.ts", { encoding: "utf-8" });
 
-    manifest.version = patch(manifest.version);
+    const newPatch = patch(manifest.version);
+    manifest.version = newPatch;
+
+    fs.writeFileSync("./package.json", JSON.stringify(manifest));
 
     try {
+      this.log(`Publishing ${manifest.name}@${manifest.version}...`);
+
       await registry.post("/publish", {
-        manifest,
-        tarData,
+        data: {
+          tarData,
+          manifest,
+          appConfig,
+        },
       });
+
+      this.log(`Successfully published ${manifest.name}@${manifest.version}`);
     } catch (error) {
       throw error;
     }
