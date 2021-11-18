@@ -4,12 +4,8 @@
       "memory": 128,
       "maxDuration": 5
     },
-    "api/build-app.ts": {
-      "memory": 128,
-      "maxDuration": 5
-    },
-    "api/build-tenant.ts": {
-      "memory": 128,
+    "api/patch-tenant.ts": {
+      "memory": 256,
       "maxDuration": 5
     }
   }
