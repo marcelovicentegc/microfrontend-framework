@@ -32,7 +32,7 @@ USAGE
 <!-- commands -->
 * [`mf-framework-cli create`](#mf-framework-cli-create)
 * [`mf-framework-cli help [COMMAND]`](#mf-framework-cli-help-command)
-* [`mf-framework-cli install`](#mf-framework-cli-install)
+* [`mf-framework-cli install [TENANT]`](#mf-framework-cli-install-tenant)
 * [`mf-framework-cli publish`](#mf-framework-cli-publish)
 
 ## `mf-framework-cli create`
@@ -69,13 +69,16 @@ OPTIONS
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.4/src/commands/help.ts)_
 
-## `mf-framework-cli install`
+## `mf-framework-cli install [TENANT]`
 
 installs a published mf-app on a tenant
 
 ```
 USAGE
-  $ mf-framework-cli install
+  $ mf-framework-cli install [TENANT]
+
+ARGUMENTS
+  TENANT  (glowing-fiesta|vigilant-octo-sniffle|redesigned-robot) [default: glowing-fiesta] output file
 
 EXAMPLE
   $ npx @mf-framework/cli install
