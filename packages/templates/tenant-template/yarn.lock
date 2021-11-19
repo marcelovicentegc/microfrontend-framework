@@ -244,10 +244,10 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
-"@mf-framework/mf-app-config@^0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@mf-framework/mf-app-config/-/mf-app-config-0.0.3.tgz#b6cdbe48186d43173448950e33d47aef8bd36026"
-  integrity sha512-FgKjCrK7g1Ly8FYPUkMq2CCm+oVQUdUzJ00+xgpqXdgEqUn5rlBToZdVemAGURRSJ1VdC5WdPNR7rghpA0/RiQ==
+"@mf-framework/config@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@mf-framework/config/-/config-0.0.5.tgz#ab05f03e839388d4f3c120b9fb36d5ba534dc5a5"
+  integrity sha512-Vy6LBAnqq1Twok2+J8jBfYqHTt/Qjixqi7Vl0Kn6UlGuZvcZ65eboeORiqHe7OhmpBdvmdlk3Oy1AZpdC260fA==
   dependencies:
     ajv "^8.8.0"
     ajv-errors "^3.0.0"
