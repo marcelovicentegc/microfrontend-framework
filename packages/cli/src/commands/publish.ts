@@ -1,10 +1,12 @@
-import { Command } from "@oclif/command";
 import * as pacote from "pacote";
 import * as fs from "fs";
-import { registry } from "../clients";
+import * as AdmZip from "adm-zip";
 import cli from "cli-ux";
+import { Command } from "@oclif/command";
+import { registry } from "../clients";
 
 const APP_PATH = "./";
+const SRC_PATH = "./src";
 
 function patch(version: string) {
   return `0.0.${Number(version.substr(version.lastIndexOf(".") + 1)) + 1}`;
@@ -18,9 +20,9 @@ export default class Publish extends Command {
   async run() {
     // TODO: Before packing and sending to registry, validate it with @mf-framework/mf-app-config.
     // TODO: Add patch, minor and major options.
-
     const manifest = await pacote.manifest(APP_PATH);
-    const tarData = await pacote.tarball(APP_PATH);
+    const zipManager = new AdmZip();
+    zipManager.addLocalFolder(SRC_PATH);
     const appConfig = fs.readFileSync("./mf-config.ts", { encoding: "utf-8" });
 
     const newPatch = patch(manifest.version);
@@ -33,15 +35,13 @@ export default class Publish extends Command {
 
       await registry.post("/publish", {
         data: {
-          tarData,
+          zip: zipManager.toBuffer(),
           manifest,
           appConfig,
         },
       });
 
-      cli.action.stop(
-        `Successfully published ${manifest.name}@${manifest.version}`
-      );
+      cli.action.stop("Done ✨");
     } catch (error) {
       throw error;
     }
