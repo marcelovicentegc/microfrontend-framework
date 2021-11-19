@@ -1,5 +1,8 @@
 import axios from "axios";
 
 export const registry = axios.create({
-  baseURL: "http://localhost:3005",
+  baseURL:
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3001/api"
+      : "https://mf-framework-registry.vercel.app/api",
 });
