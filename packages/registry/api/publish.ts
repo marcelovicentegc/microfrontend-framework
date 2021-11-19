@@ -13,7 +13,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
   }
 
   const {
-    data: { manifest, appConfig, tarData },
+    data: { manifest, appConfig, zip },
   } = req.body;
 
   // TOOD: Add API key authentication.
@@ -25,15 +25,20 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     const storage = getStorage(firebase);
     const manifestRef = ref(storage, `${bucket}/package.json`);
     const appConfigRef = ref(storage, `${bucket}/mf-config.ts`);
-    const tarRef = ref(storage, `${bucket}/${app}.zip`);
+    const zipRef = ref(storage, `${bucket}/${app}.zip`);
 
     await Promise.all([
       uploadString(manifestRef, JSON.stringify(manifest)),
       uploadString(appConfigRef, appConfig),
-      uploadBytes(tarRef, new Uint8Array(tarData.data)),
+      uploadBytes(zipRef, new Uint8Array(zip.data)),
     ]);
   } catch (error) {
     Sentry.captureException(error);
     throw error;
   }
+
+  res.setHeader("Content-Type", "application/json");
+  res.status(201).end("Created");
+
+  return res;
 };
