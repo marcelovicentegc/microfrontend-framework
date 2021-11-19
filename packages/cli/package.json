@@ -40,7 +40,7 @@
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json"
   ],
-  "homepage": "https://github.com/marcelovicentegc/microfrontend-framework",
+  "homepage": "https://github.com/marcelovicentegc/microfrontend-framework/tree/main/packages/cli",
   "keywords": [
     "oclif"
   ],
@@ -53,7 +53,7 @@
       "@oclif/plugin-help"
     ]
   },
-  "repository": "https://github.com/marcelovicentegc/microfrontend-framework",
+  "repository": "https://github.com/marcelovicentegc/microfrontend-framework/tree/main/packages/cli",
   "scripts": {
     "postpack": "rm -f oclif.manifest.json",
     "posttest": "eslint . --ext .ts --config .eslintrc",

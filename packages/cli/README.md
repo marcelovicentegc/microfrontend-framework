@@ -19,7 +19,7 @@ $ npm install -g @mf-framework/cli
 $ mf-framework-cli COMMAND
 running command...
 $ mf-framework-cli (-v|--version|version)
-@mf-framework/cli/0.0.13 darwin-arm64 node-v16.13.0
+@mf-framework/cli/0.0.14 darwin-arm64 node-v16.13.0
 $ mf-framework-cli --help [COMMAND]
 USAGE
   $ mf-framework-cli COMMAND
@@ -50,7 +50,7 @@ EXAMPLE
   $ npx @mf-framework/cli create
 ```
 
-_See code: [src/commands/create.ts](https://github.com/marcelovicentegc/microfrontend-framework/blob/v0.0.13/src/commands/create.ts)_
+_See code: [src/commands/create.ts](https://github.com/marcelovicentegc/microfrontend-framework/blob/v0.0.14/src/commands/create.ts)_
 
 ## `mf-framework-cli help [COMMAND]`
 
@@ -84,7 +84,7 @@ EXAMPLE
   $ npx @mf-framework/cli install
 ```
 
-_See code: [src/commands/install.ts](https://github.com/marcelovicentegc/microfrontend-framework/blob/v0.0.13/src/commands/install.ts)_
+_See code: [src/commands/install.ts](https://github.com/marcelovicentegc/microfrontend-framework/blob/v0.0.14/src/commands/install.ts)_
 
 ## `mf-framework-cli publish`
 
@@ -98,5 +98,5 @@ EXAMPLE
   $ npx @mf-framework/cli publish
 ```
 
-_See code: [src/commands/publish.ts](https://github.com/marcelovicentegc/microfrontend-framework/blob/v0.0.13/src/commands/publish.ts)_
+_See code: [src/commands/publish.ts](https://github.com/marcelovicentegc/microfrontend-framework/blob/v0.0.14/src/commands/publish.ts)_
 <!-- commandsstop -->
