@@ -1,4 +1,5 @@
 import { Command } from "@oclif/command";
+import { cli } from "cli-ux";
 import * as pacote from "pacote";
 import { builders } from "../clients";
 
@@ -24,12 +25,18 @@ export default class Install extends Command {
 
     const manifest = await pacote.manifest(APP_PATH);
 
-    await builders.post("/patch-tenant", {
+    cli.action.start(
+      `Installing ${manifest.name}@${manifest.version} on ${args.tenant}`
+    );
+
+    const response = await builders.post("/patch-tenant", {
       data: {
         app: `${manifest.name}@${manifest.version}`,
         tenant: args.tenant,
       },
     });
+
+    cli.action.stop(`Done ✨\n${response.data.message}`);
 
     try {
     } catch (error) {
