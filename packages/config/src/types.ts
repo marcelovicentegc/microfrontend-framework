@@ -1,4 +1,5 @@
 export interface AppConfig {
+  basePath: string;
   items: SidebarConfigTemplate[];
 }
 
