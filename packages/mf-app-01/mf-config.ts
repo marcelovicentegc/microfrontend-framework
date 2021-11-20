@@ -1,18 +1,17 @@
-import { AppConfig } from "@mf-framework/mf-app-config";
+import { AppConfig } from "@mf-framework/config";
 
 export default {
-  sidebar: [
+  basePath: "/mf-app-01",
+  items: [
     {
-      slot: "one",
-      path: "/mf-app-01",
+      route: "/album",
       title: "NextJS App 01",
-      componentName: "index",
+      pageName: "index.tsx",
     },
     {
-      slot: "one",
-      path: "/mf-app-01/another-page",
+      route: "/pricing",
       title: "NextJS App 02",
-      componentName: "another-page",
+      pageName: "pricing.tsx",
     },
   ],
 } as AppConfig;
