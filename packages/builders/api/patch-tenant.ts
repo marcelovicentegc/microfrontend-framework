@@ -4,12 +4,18 @@ import { octokit, registry } from "../clients";
 import { v4 as uuid } from "uuid";
 import AdmZip from "adm-zip";
 import axios from "axios";
+import { AppConfig } from "@mf-framework/config";
 
 const REPO = { owner: "marcelovicentegc", repo: "microfrontend-framework" };
 const ALLOWED_PATHS = ["components/", "pages/api/", "pages/"] as const;
 const FORBIDDEN_ENTRIES = ["/_app.tsx"];
-type AllowedPaths = typeof ALLOWED_PATHS[number];
 const RELATIVE_IMPORT_PATHS = ["../components/"];
+const ENTRY_POINTS = {
+  ITEMS: "[ITEMS ENTRY-POINT]",
+  REWRITES: "[REWRITES ENTRY-POINT]",
+};
+
+type AllowedPaths = typeof ALLOWED_PATHS[number];
 
 function updateRelativeImports(
   rawData: string,
@@ -27,14 +33,25 @@ function updateRelativeImports(
   return data;
 }
 
-async function handleZipDownload(url: string, app: string, tenant: string) {
-  const response = await axios({
-    url,
-    method: "GET",
-    responseType: "arraybuffer",
-  });
+async function getAppData(
+  data: { downloadUrl: string; appConfigDownloadUrl: string },
+  app: string,
+  tenant: string
+) {
+  const [appDownload, appConfigDownload] = await Promise.all([
+    axios({
+      url: data.downloadUrl,
+      method: "GET",
+      responseType: "arraybuffer",
+    }),
+    axios({
+      url: data.appConfigDownloadUrl,
+      method: "GET",
+      responseType: "json",
+    }),
+  ]);
 
-  const zip = new AdmZip(response.data);
+  const zip = new AdmZip(appDownload.data);
   const entries = zip.getEntries();
 
   const jsonRepresentation: any = {};
@@ -79,7 +96,10 @@ async function handleZipDownload(url: string, app: string, tenant: string) {
     });
   }
 
-  return jsonRepresentation;
+  return {
+    appJsonRepresentation: jsonRepresentation,
+    appConfig: appConfigDownload.data as string,
+  };
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
@@ -96,11 +116,73 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   const { data } = await registry.get(`/app?name=${app}`);
 
-  const appJsonRepresentation = await handleZipDownload(
-    data.downloadUrl,
+  const { appJsonRepresentation, appConfig } = await getAppData(
+    data,
     app,
     tenant
   );
+
+  // Validate `appConfig` before manipulating it into the tenant
+  const appConfigObj = JSON.parse(
+    appConfig
+      .replace('import { AppConfig } from "@mf-framework/config";', "")
+      .replace("export default ", "")
+      .replace(" as AppConfig;", "")
+      .replace(/(\r\n|\n|\r)/gm, "")
+      .replace("basePath: ", '"basePath": ')
+      .replace(/items: /g, '"items": ')
+      .replace(/route: /g, '"route": ')
+      .replace(/pageName: /g, '"pageName": ')
+      .replace(/title: /g, '"title": ')
+      .replace(/\s+/g, "")
+      .replace(/],}/g, "]}")
+      .replace(/,}/g, "}")
+      .replace(/},]/g, "}]")
+  ) as AppConfig;
+
+  const [tenantNextConfig, tenantConfig] = await Promise.all([
+    octokit.rest.repos.getContent({
+      ...REPO,
+      path: `examples/${tenant}/next.config.js`,
+    }),
+    octokit.rest.repos.getContent({
+      ...REPO,
+      path: `examples/${tenant}/mf-config.ts`,
+    }),
+  ]);
+
+  let nextConfigContent = Buffer.from(
+    // @ts-ignore
+    tenantNextConfig.data["content"],
+    "base64"
+  ).toString("ascii");
+
+  let tenantConfigContent = Buffer.from(
+    // @ts-ignore
+    tenantConfig.data["content"],
+    "base64"
+  ).toString("ascii");
+
+  tenantConfigContent = tenantConfigContent.replace(
+    ENTRY_POINTS.ITEMS,
+    ENTRY_POINTS.ITEMS +
+      `\n${appConfigObj.items.map(
+        (item) =>
+          `{ route: "${appConfigObj.basePath}${item.route}", title: "${item.title}", pageName: "${item.pageName}"}`
+      )}`
+  );
+
+  nextConfigContent = nextConfigContent.replace(
+    ENTRY_POINTS.REWRITES,
+    ENTRY_POINTS.REWRITES +
+      `\n{ source: "/${app}/:path*", destination: "${appConfigObj.basePath}/:path*",},`
+  );
+
+  const files = {
+    ...appJsonRepresentation,
+    [`examples/${tenant}/next.config.js`]: nextConfigContent,
+    [`examples/${tenant}/mf-app.ts`]: tenantConfigContent,
+  };
 
   try {
     const response = await composeCreatePullRequest(octokit, {
@@ -113,8 +195,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       head: `${tenant}-${uuid()}`,
       changes: [
         {
-          files: appJsonRepresentation,
-          commit: `$chore(tenant:${tenant}): install ${app}`,
+          files,
+          commit: `chore(tenant:${tenant}): install ${app}`,
         },
       ],
     });

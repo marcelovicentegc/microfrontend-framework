@@ -22,6 +22,7 @@
     "typescript": "^4.4.4"
   },
   "dependencies": {
+    "@mf-framework/config": "^0.0.8",
     "@octokit/rest": "^18.12.0",
     "adm-zip": "^0.5.9",
     "axios": "^0.24.0",
