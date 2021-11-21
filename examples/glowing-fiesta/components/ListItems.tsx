@@ -10,11 +10,11 @@ import { useRouter } from "next/router";
 import tenantConfig from "../mf-config";
 
 const items = [
-  <DashboardIcon />,
-  <ShoppingCartIcon />,
-  <PeopleIcon />,
-  <BarChartIcon />,
-  <LayersIcon />,
+  <DashboardIcon key={"dashboard"} />,
+  <ShoppingCartIcon key={"shoppingCart"} />,
+  <PeopleIcon key={"people"} />,
+  <BarChartIcon key={"barChart"} />,
+  <LayersIcon key={"layers"} />,
 ];
 
 function RandomIcon() {
@@ -38,7 +38,11 @@ export function ListItems() {
   return (
     <div>
       {tenantConfig.items.map((item) => (
-        <Item onClick={() => push(item.route)} title={item.title} />
+        <Item
+          key={item.pageName}
+          onClick={() => push(item.route)}
+          title={item.title}
+        />
       ))}
     </div>
   );

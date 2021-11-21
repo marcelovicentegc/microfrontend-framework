@@ -1,22 +1,17 @@
 {
-  "name": "tenant-template",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
+  "name": "@mf-framework/sdk",
+  "version": "0.0.0",
+  "license": "MIT",
+  "author": "Marcelo Cardoso <marcelovicentegc@gmail.com>",
   "dependencies": {
     "@emotion/react": "^11.6.0",
     "@emotion/styled": "^11.6.0",
-    "@mf-framework/config": "^0.0.8",
+    "@mf-framework/mf-app-config": "^0.0.3",
     "@mui/icons-material": "^5.1.1",
     "@mui/material": "^5.1.1",
     "next": "12.0.4",
     "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "recharts": "^2.1.6"
+    "react-dom": "17.0.2"
   },
   "devDependencies": {
     "@types/node": "16.11.9",
