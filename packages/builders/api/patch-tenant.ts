@@ -6,8 +6,28 @@ import AdmZip from "adm-zip";
 import axios from "axios";
 
 const REPO = { owner: "marcelovicentegc", repo: "microfrontend-framework" };
+const ALLOWED_PATHS = ["components/", "pages/api/", "pages/"] as const;
+const FORBIDDEN_ENTRIES = ["/_app.tsx"];
+type AllowedPaths = typeof ALLOWED_PATHS[number];
+const RELATIVE_IMPORT_PATHS = ["../components/"];
 
-async function handleZipDownload(url: string, tenant: string) {
+function updateRelativeImports(
+  rawData: string,
+  parentFolder: AllowedPaths,
+  app: string
+) {
+  let data = rawData;
+
+  if (parentFolder === "pages/") {
+    RELATIVE_IMPORT_PATHS.forEach((path) => {
+      data = data.replace(path, `../../${path}${app}/`);
+    });
+  }
+
+  return data;
+}
+
+async function handleZipDownload(url: string, app: string, tenant: string) {
   const response = await axios({
     url,
     method: "GET",
@@ -29,8 +49,27 @@ async function handleZipDownload(url: string, tenant: string) {
     await new Promise(function (resolve, reject) {
       try {
         getDataAsync(function (data) {
-          jsonRepresentation[`examples/${tenant}/${entryName}`] =
-            data.toString("utf-8");
+          const pathIndex = ALLOWED_PATHS.findIndex((path) =>
+            entryName.includes(path)
+          );
+          if (
+            pathIndex > -1 &&
+            !FORBIDDEN_ENTRIES.find((entry) => entryName.includes(entry))
+          ) {
+            const parentFolder = ALLOWED_PATHS[pathIndex];
+            const customPath = entryName.replace(
+              parentFolder,
+              `${parentFolder}${app}/`
+            );
+
+            const srcCode = updateRelativeImports(
+              data.toString("utf-8"),
+              parentFolder,
+              app
+            );
+
+            jsonRepresentation[`examples/${tenant}/${customPath}`] = srcCode;
+          }
 
           resolve(1);
         });
@@ -59,6 +98,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   const appJsonRepresentation = await handleZipDownload(
     data.downloadUrl,
+    app,
     tenant
   );
 
