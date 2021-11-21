@@ -181,7 +181,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const files = {
     ...appJsonRepresentation,
     [`examples/${tenant}/next.config.js`]: nextConfigContent,
-    [`examples/${tenant}/mf-app.ts`]: tenantConfigContent,
+    [`examples/${tenant}/mf-config.ts`]: tenantConfigContent,
   };
 
   try {
