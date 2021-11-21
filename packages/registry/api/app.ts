@@ -29,10 +29,12 @@ export default async (req: VercelRequest, res: VercelResponse) => {
 
     const storage = getStorage(firebase);
     const appRef = ref(storage, `${bucket}/${app}.zip`);
+    const appConfigRef = ref(storage, `${bucket}/mf-config.ts`);
     const downloadUrl = await getDownloadURL(appRef);
+    const appConfigDownloadUrl = await getDownloadURL(appConfigRef);
 
     res.setHeader("Content-Type", "application/json");
-    res.status(200).json({ downloadUrl });
+    res.status(200).json({ downloadUrl, appConfigDownloadUrl });
 
     return res;
   } catch (error) {
