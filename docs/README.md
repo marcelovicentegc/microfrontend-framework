@@ -5,7 +5,7 @@
 ---
 
 - [Packages](#packages)
-- [Multi-tenant mixed approach model](#multi-tenant-mixed-approach-model)
+- [Build-time model](#build-time-model)
   - [Strenghts](#strenghts)
   - [Weaknesses](#weaknesses)
   - [Architecture](#architecture)
@@ -13,32 +13,30 @@
 
 ## Packages
 
-| Package                                                    | Description |
-| ---------------------------------------------------------- | ----------- |
-| [`@mf-framework/builders`](../packages/builders)           |             |
-| [`@mf-framework/cli`](../packages/cli)                     |             |
-| [`@mf-framework/container`](../packages/container)         |             |
-| [`@mf-framework/mf-app-config`](../packages/mf-app-config) |             |
-| [`@mf-framework/registry`](../packages/registry)           |             |
-| [`@mf-framework/sdk`](../packages/sdk)                     |             |
-| [`@mf-framework/templates`](../packages/templates)         |             |
+| Package                                            | Description                                                                       |
+| -------------------------------------------------- | --------------------------------------------------------------------------------- |
+| [`@mf-framework/builders`](../packages/builders)   | Service responsible for patching tenants with new apps                            |
+| [`@mf-framework/cli`](../packages/cli)             | CLI that interfaces with the registry and the builder services to develop MF apps |
+| [`@mf-framework/container`](../packages/container) | Container application                                                             |
+| [`@mf-framework/config`](../packages/config)       | Configuration interface to fit a MF app into the container of a tenant            |
+| [`@mf-framework/registry`](../packages/registry)   | Service that acts as a wrapper for Firestore                                      |
+| [`@mf-framework/sdk`](../packages/sdk)             | WIP                                                                               |
+| [`@mf-framework/templates`](../packages/templates) | Getting started templates                                                         |
 
-## Multi-tenant mixed approach model
+## Build-time model
 
-It uses a mixed approach, a merge between build-time lockstep-release-process-free and run-time integration via NextJS pages that manages to benefit with the best of both worlds by relying in a strong automated workflow.
+It uses a build-time integration approach via NextJS pages.
 
 ### Strenghts
 
-- No iframes involved.
-- Flexibility of the run-time integration approach, where each micro frontend is included and removed onto/from the page on-demand.
-- Each micro frontend can be deployed independently.
-- All the benefits of a NextJS monolith that doesn't need to be manually managed.
+- All the benefits of a NextJS monolith that doesn't need to be manually managed. Namely, performance and consistent UX.
 - Automated CHANGELOG for each tenant.
 - Code deduplication.
 
 ### Weaknesses
 
-- We'll get there...
+- Lockstep release process
+  - > If the concepts presented here are applied smartly, it's possible to skip the lockstep release process.
 
 ### Architecture
 
