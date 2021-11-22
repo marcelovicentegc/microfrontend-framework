@@ -4,7 +4,7 @@ export default {
   basePath: "/mf-app-01",
   items: [
     {
-      route: "/album",
+      route: "/",
       title: "NextJS App 01",
       pageName: "index.tsx",
     },

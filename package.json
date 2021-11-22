@@ -6,8 +6,7 @@
   "author": "marcelovicentegc <marcelovicentegc@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "prepublish": "sh config_version.sh",
-    "start": ""
+    "prepublish": "sh config_version.sh"
   },
   "devDependencies": {
     "concurrently": "^6.4.0",
