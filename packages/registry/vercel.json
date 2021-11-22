@@ -5,11 +5,11 @@
       "maxDuration": 5
     },
     "api/publish.ts": {
-      "memory": 256,
+      "memory": 1024,
       "maxDuration": 5
     },
     "api/app.ts": {
-      "memory": 256,
+      "memory": 1024,
       "maxDuration": 5
     }
   }
