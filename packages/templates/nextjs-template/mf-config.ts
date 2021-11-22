@@ -1,12 +1,12 @@
-import { AppConfig } from "@mf-framework/mf-app-config";
+import { AppConfig } from "@mf-framework/config";
 
 export default {
-  sidebar: [
+  basePath: "/nextjs-template-app",
+  items: [
     {
-      slot: "one",
-      path: "/my-app-nextjs",
-      title: "My App NextJS",
-      componentName: "index",
+      route: "/",
+      title: "NextJS Template App",
+      pageName: "index.tsx",
     },
   ],
 } as AppConfig;
