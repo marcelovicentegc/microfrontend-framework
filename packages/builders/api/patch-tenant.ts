@@ -175,7 +175,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   nextConfigContent = nextConfigContent.replace(
     ENTRY_POINTS.REWRITES,
     ENTRY_POINTS.REWRITES +
-      `\n{ source: "/${app}/:path*", destination: "${appConfigObj.basePath}/:path*",},`
+      `\n{ source: "${appConfigObj.basePath}/:path*",\n destination: "/${app}/:path*", },`
   );
 
   const files = {
