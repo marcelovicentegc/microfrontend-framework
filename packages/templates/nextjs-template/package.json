@@ -1,5 +1,5 @@
 {
-  "name": "mf-app-nextjs-template",
+  "name": "@mf-framework/nextjs-template",
   "version": "0.0.0",
   "scripts": {
     "dev": "next dev",
