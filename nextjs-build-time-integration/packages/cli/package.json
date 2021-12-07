@@ -1,6 +1,6 @@
 {
   "name": "@mf-framework/cli",
-  "version": "0.0.14",
+  "version": "0.0.16",
   "author": "marcelovicentegc @marcelovicentegc",
   "bin": {
     "mf-framework-cli": "bin/run"
@@ -61,9 +61,5 @@
     "test": "echo NO TESTS",
     "version": "oclif-dev readme && git add README.md",
     "start": "NODE_ENV=development bin/run"
-  },
-  "_id": "@mf-framework/cli@0.0.13",
-  "_integrity": null,
-  "_resolved": "/Users/marcelocardoso/Documents/microfrontend-framework/packages/cli",
-  "_from": "file:"
+  }
 }
