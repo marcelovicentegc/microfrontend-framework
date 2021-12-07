@@ -42,7 +42,7 @@ export default class Create extends Command {
   cd ${appName}
   git sparse-checkout set ${framework}-template
   mv nextjs-build-time-integration/packages/templates/${framework}-template/** .
-  rm -rf nextjs-build-time-integration/packages
+  rm -rf nextjs-build-time-integration
   yarn`,
       (error, stdout, stderr) => {
         if (error) {
