@@ -14,6 +14,7 @@ const ENTRY_POINTS = {
   ITEMS: "[ITEMS ENTRY-POINT]",
   REWRITES: "[REWRITES ENTRY-POINT]",
 };
+const EXAMPLES_BASE_PATH = "nextjs-build-time-integration/examples";
 
 type AllowedPaths = typeof ALLOWED_PATHS[number];
 
@@ -85,7 +86,9 @@ async function getAppData(
               app
             );
 
-            jsonRepresentation[`examples/${tenant}/${customPath}`] = srcCode;
+            jsonRepresentation[
+              `${EXAMPLES_BASE_PATH}/${tenant}/${customPath}`
+            ] = srcCode;
           }
 
           resolve(1);
@@ -143,11 +146,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const [tenantNextConfig, tenantConfig] = await Promise.all([
     octokit.rest.repos.getContent({
       ...REPO,
-      path: `examples/${tenant}/next.config.js`,
+      path: `${EXAMPLES_BASE_PATH}/${tenant}/next.config.js`,
     }),
     octokit.rest.repos.getContent({
       ...REPO,
-      path: `examples/${tenant}/mf-config.ts`,
+      path: `${EXAMPLES_BASE_PATH}/${tenant}/mf-config.ts`,
     }),
   ]);
 
@@ -180,8 +183,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   const files = {
     ...appJsonRepresentation,
-    [`examples/${tenant}/next.config.js`]: nextConfigContent,
-    [`examples/${tenant}/mf-config.ts`]: tenantConfigContent,
+    [`${EXAMPLES_BASE_PATH}/${tenant}/next.config.js`]: nextConfigContent,
+    [`${EXAMPLES_BASE_PATH}/${tenant}/mf-config.ts`]: tenantConfigContent,
   };
 
   try {

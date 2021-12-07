@@ -4,12 +4,15 @@
 
 ---
 
-- [Packages](#packages)
-- [Build-time model](#build-time-model)
+- [NextJS microfrontend framework with build-time integration approach](#nextjs-microfrontend-framework-with-build-time-integration-approach)
+  - [Packages](#packages)
   - [Strenghts](#strenghts)
   - [Weaknesses](#weaknesses)
-  - [Architecture](#architecture)
-    - [Interaction Overview](#interaction-overview)
+  - [Playing with the POC](#playing-with-the-poc)
+- [Architecture](#architecture)
+  - [Interaction Overview](#interaction-overview)
+
+# NextJS microfrontend framework with build-time integration approach
 
 ## Packages
 
@@ -23,23 +26,40 @@
 | [`@mf-framework/sdk`](../packages/sdk)             | WIP                                                                               |
 | [`@mf-framework/templates`](../packages/templates) | Getting started templates                                                         |
 
-## Build-time model
-
-It uses a build-time integration approach via NextJS pages.
-
-### Strenghts
+## Strenghts
 
 - All the benefits of a NextJS monolith that doesn't need to be manually managed. Namely, performance and consistent UX.
 - Automated CHANGELOG for each tenant.
 - Code deduplication.
+- Acceptable workflow for **small teams** or **lonely wolves** that doesn't deal with thousands of tenants or microfrontend apps changes at a fast pace.
 
-### Weaknesses
+## Weaknesses
 
-- Lockstep release process
-  - > If the concepts presented here are applied smartly, it's possible to skip the lockstep release process.
+- Lockstep release process.
+  - > If the concepts presented here are applied smartly, it is possible to skip the lockstep release process.
+- Difficult to scale. How to orchestrate updates in thousands of tenants and hundreds of apps, often simultaneously? Good luck with that.
 
-### Architecture
+## Playing with the POC
 
-#### Interaction Overview
+```bash
+# Install the CLI
+yarn global add @mf-framework/cli
+
+# Go through CLI prompt...
+mf-framework-cli create
+
+# Jump into the created apps' root folder if you haven't already
+cd <app-name>
+
+# Publishes to Firestore
+mf-framework-cli publish
+
+# Installs app on the default tenant: glowing-fiesta
+mf-framework-cli install
+```
+
+# Architecture
+
+## Interaction Overview
 
 ![Microfrontend Framework](./assets/microfrontend-framework.svg)

@@ -41,8 +41,8 @@ export default class Create extends Command {
     git@github.com:marcelovicentegc/microfrontend-framework.git ${appName};
   cd ${appName}
   git sparse-checkout set ${framework}-template
-  mv packages/templates/${framework}-template/** .
-  rm -rf packages
+  mv nextjs-build-time-integration/packages/templates/${framework}-template/** .
+  rm -rf nextjs-build-time-integration/packages
   yarn`,
       (error, stdout, stderr) => {
         if (error) {

@@ -13,7 +13,7 @@ function patch(version: string) {
 }
 
 export default class Publish extends Command {
-  static description = "creates a new mf-app";
+  static description = "publishes a patched version of the mf-app";
 
   static examples = [`$ npx @mf-framework/cli publish`];
 
