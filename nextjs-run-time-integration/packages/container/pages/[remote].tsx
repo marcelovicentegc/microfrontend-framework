@@ -5,9 +5,9 @@ import { createRemoteComponent } from "../utils/remote";
 export default function RemotePage() {
   const { asPath } = useRouter();
 
-  const RemoteComponent = createRemoteComponent();
+  createRemoteComponent({
+    url: `${LOADER_URL}/render?target=${asPath.replace("/", "")}`,
+  });
 
-  const url = `${LOADER_URL}/render?target=${asPath.replace("/", "")}`;
-
-  return <RemoteComponent url={url} />;
+  return <div id="remote-component" />;
 }
