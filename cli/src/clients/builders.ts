@@ -2,7 +2,7 @@ import axios from "axios";
 
 const MAX = 100000000;
 
-export const builders = axios.create({
+export const nbtiBuilder = axios.create({
   baseURL:
     process.env.NODE_ENV === "development"
       ? "http://localhost:3001/api"

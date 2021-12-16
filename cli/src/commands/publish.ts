@@ -3,7 +3,7 @@ import * as fs from "fs";
 import * as AdmZip from "adm-zip";
 import cli from "cli-ux";
 import { Command } from "@oclif/command";
-import { registry } from "../clients";
+import { nbtiRegistry } from "../clients";
 
 const APP_PATH = "./";
 const SRC_PATH = "./src";
@@ -15,7 +15,7 @@ function patch(version: string) {
 export default class Publish extends Command {
   static description = "publishes a patched version of the mf-app";
 
-  static examples = [`$ npx @mf-framework/cli publish`];
+  static examples = [`$ mf-framework-cli publish`];
 
   async run() {
     // TODO: Before packing and sending to registry, validate it with @mf-framework/mf-app-config.
@@ -33,7 +33,7 @@ export default class Publish extends Command {
     try {
       cli.action.start(`Publishing ${manifest.name}@${manifest.version}`);
 
-      await registry.post("/publish", {
+      await nbtiRegistry.post("/publish", {
         data: {
           zip: zipManager.toBuffer(),
           manifest,

@@ -1,14 +1,14 @@
 import { Command } from "@oclif/command";
 import { cli } from "cli-ux";
 import * as pacote from "pacote";
-import { builders } from "../clients";
+import { nbtiBuilder } from "../clients";
 
 const APP_PATH = "./";
 
 export default class Install extends Command {
   static description = "installs a published mf-app on a tenant";
 
-  static examples = [`$ npx @mf-framework/cli install`];
+  static examples = [`$ mf-framework-cli install`];
 
   static args = [
     {
@@ -29,7 +29,7 @@ export default class Install extends Command {
       `Installing ${manifest.name}@${manifest.version} on ${args.tenant}`
     );
 
-    const response = await builders.post("/patch-tenant", {
+    const response = await nbtiBuilder.post("/patch-tenant", {
       data: {
         app: `${manifest.name}@${manifest.version}`,
         tenant: args.tenant,
