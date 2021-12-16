@@ -1,6 +1,6 @@
 {
   "name": "@mf-framework/cli",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "author": "marcelovicentegc @marcelovicentegc",
   "bin": {
     "mf-framework-cli": "bin/run"
@@ -59,6 +59,7 @@
     "posttest": "eslint . --ext .ts --config .eslintrc",
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
     "test": "echo NO TESTS",
+    "prepublish": "sh config_version.sh",
     "version": "oclif-dev readme && git add README.md",
     "start": "NODE_ENV=development bin/run"
   }
