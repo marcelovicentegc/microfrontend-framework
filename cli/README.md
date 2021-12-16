@@ -19,7 +19,7 @@ $ npm install -g @mf-framework/cli
 $ mf-framework-cli COMMAND
 running command...
 $ mf-framework-cli (-v|--version|version)
-@mf-framework/cli/0.0.18 darwin-arm64 node-v16.13.0
+@mf-framework/cli/0.0.19 darwin-arm64 node-v16.13.0
 $ mf-framework-cli --help [COMMAND]
 USAGE
   $ mf-framework-cli COMMAND
@@ -44,13 +44,13 @@ USAGE
   $ mf-framework-cli create
 
 OPTIONS
-  --framework=nextjs|react
+  --poc=nrti|nbti  the target POC: nextjs-run-time-integration (nrti) or nextjs-build-time-integration (nbti)
 
 EXAMPLE
-  $ npx @mf-framework/cli create
+  $ mf-framework-cli create
 ```
 
-_See code: [src/commands/create.ts](https://github.com/marcelovicentegc/microfrontend-framework/blob/v0.0.18/src/commands/create.ts)_
+_See code: [src/commands/create.ts](https://github.com/marcelovicentegc/microfrontend-framework/blob/v0.0.19/src/commands/create.ts)_
 
 ## `mf-framework-cli help [COMMAND]`
 
@@ -81,10 +81,10 @@ ARGUMENTS
   TENANT  (glowing-fiesta|vigilant-octo-sniffle|redesigned-robot) [default: glowing-fiesta] output file
 
 EXAMPLE
-  $ npx @mf-framework/cli install
+  $ mf-framework-cli install
 ```
 
-_See code: [src/commands/install.ts](https://github.com/marcelovicentegc/microfrontend-framework/blob/v0.0.18/src/commands/install.ts)_
+_See code: [src/commands/install.ts](https://github.com/marcelovicentegc/microfrontend-framework/blob/v0.0.19/src/commands/install.ts)_
 
 ## `mf-framework-cli publish`
 
@@ -95,8 +95,8 @@ USAGE
   $ mf-framework-cli publish
 
 EXAMPLE
-  $ npx @mf-framework/cli publish
+  $ mf-framework-cli publish
 ```
 
-_See code: [src/commands/publish.ts](https://github.com/marcelovicentegc/microfrontend-framework/blob/v0.0.18/src/commands/publish.ts)_
+_See code: [src/commands/publish.ts](https://github.com/marcelovicentegc/microfrontend-framework/blob/v0.0.19/src/commands/publish.ts)_
 <!-- commandsstop -->

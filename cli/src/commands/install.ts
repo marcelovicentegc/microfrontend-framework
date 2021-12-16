@@ -1,7 +1,7 @@
 import { Command } from "@oclif/command";
 import { cli } from "cli-ux";
 import * as pacote from "pacote";
-import { nbtiBuilder } from "../clients";
+import { builder } from "../clients";
 
 const APP_PATH = "./";
 
@@ -29,7 +29,7 @@ export default class Install extends Command {
       `Installing ${manifest.name}@${manifest.version} on ${args.tenant}`
     );
 
-    const response = await nbtiBuilder.post("/patch-tenant", {
+    const response = await builder.post("/patch-tenant", {
       data: {
         app: `${manifest.name}@${manifest.version}`,
         tenant: args.tenant,

@@ -3,7 +3,7 @@ import * as fs from "fs";
 import * as AdmZip from "adm-zip";
 import cli from "cli-ux";
 import { Command } from "@oclif/command";
-import { nbtiRegistry } from "../clients";
+import { registry } from "../clients";
 
 const APP_PATH = "./";
 const SRC_PATH = "./src";
@@ -18,12 +18,14 @@ export default class Publish extends Command {
   static examples = [`$ mf-framework-cli publish`];
 
   async run() {
-    // TODO: Before packing and sending to registry, validate it with @mf-framework/mf-app-config.
+    // TODO: Before packing and sending to registry, validate it with @mf-framework/config.
     // TODO: Add patch, minor and major options.
     const manifest = await pacote.manifest(APP_PATH);
     const zipManager = new AdmZip();
     zipManager.addLocalFolder(SRC_PATH);
-    const appConfig = fs.readFileSync("./mf-config.ts", { encoding: "utf-8" });
+    const appConfig = fs.readFileSync("./mf-config.ts", {
+      encoding: "utf-8",
+    });
 
     const newPatch = patch(manifest.version);
     manifest.version = newPatch;
@@ -33,7 +35,7 @@ export default class Publish extends Command {
     try {
       cli.action.start(`Publishing ${manifest.name}@${manifest.version}`);
 
-      await nbtiRegistry.post("/publish", {
+      await registry.post("/publish", {
         data: {
           zip: zipManager.toBuffer(),
           manifest,
