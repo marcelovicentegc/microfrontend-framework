@@ -65,7 +65,7 @@ export default class Create extends Command {
           choices: Create.pocOptions.map((option) => ({ name: option })),
         },
       ]);
-      poc = responses.framework;
+      poc = responses.poc;
     }
 
     switch (poc) {
