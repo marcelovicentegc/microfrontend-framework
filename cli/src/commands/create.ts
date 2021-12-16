@@ -3,13 +3,8 @@ import { exec } from "child_process";
 import cli from "cli-ux";
 import * as inquirer from "inquirer";
 
-const pocMap: { [key: string]: string } = {
-  nrti: "nextjs-run-time-integration",
-  nbti: "nextjs-build-time-integration",
-};
-
 function clone(appName: string, framework: string, poc: string) {
-  cli.action.start(`Creating ${appName} mf app with ${framework}`);
+  cli.action.start(`Creating ${poc} ${appName} mf app with ${framework}`);
 
   exec(
     `git clone \
@@ -19,7 +14,7 @@ function clone(appName: string, framework: string, poc: string) {
   git@github.com:marcelovicentegc/microfrontend-framework.git ${appName};
 cd ${appName}
 git sparse-checkout set ${framework}-template
-mv ${pocMap[poc]}/packages/templates/${framework}-template/** .
+mv ${poc}/packages/templates/${framework}-template/** .
 rm -rf nextjs-*
 rm -rf cli
 rm -rf registry
@@ -44,12 +39,13 @@ export default class Create extends Command {
   static examples = [`$ mf-framework-cli create`];
 
   private static frameworkOptions = ["nextjs", "react"];
-  private static pocOptions = ["nrti", "nbti"];
+  private static pocOptions = [
+    "nextjs-run-time-integration",
+    "nextjs-build-time-integration",
+  ];
   static flags = {
     poc: flags.string({
       options: Create.pocOptions,
-      description:
-        "the target POC: nextjs-run-time-integration (nrti) or nextjs-build-time-integration (nbti) ",
     }),
   };
 
@@ -73,7 +69,7 @@ export default class Create extends Command {
     }
 
     switch (poc) {
-      case "nbti":
+      case "nextjs-build-time-integration":
         framework = await inquirer.prompt([
           {
             name: "framework",
