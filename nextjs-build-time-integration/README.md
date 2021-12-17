@@ -17,7 +17,6 @@
 | [`@mf-framework/container`](./packages/container) | Container application                                                             |
 | [`@mf-framework/config`](./packages/config)       | Configuration interface to fit a MF app into the container of a tenant            |
 | [`@mf-framework/registry`](./packages/registry)   | Service that acts as a wrapper for Firestore                                      |
-| [`@mf-framework/sdk`](./packages/sdk)             | WIP                                                                               |
 | [`@mf-framework/templates`](./packages/templates) | Getting started templates                                                         |
 
 ## Strenghts
